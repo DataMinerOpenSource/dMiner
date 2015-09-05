@@ -7,18 +7,6 @@ package io.github.mezk.dminer.regression.ols;
  */
 public class LinearOrdinaryLeastSquares extends AbstractOrdinaryLeastSquares {
 
-    /**Result of calculations.*/
-    private Result result;
-
-    /**Default constructor.*/
-    public LinearOrdinaryLeastSquares() {
-        result = new Result();
-    }
-
-    public Result getResult() {
-        return result;
-    }
-
     @Override
     public strictfp Result process(double[][] inputData) {
 
@@ -34,6 +22,7 @@ public class LinearOrdinaryLeastSquares extends AbstractOrdinaryLeastSquares {
 
         //TODO: Calculate correlation coefficient.
 
+        final Result result = new Result();
         result.setCoefficientA(a);
         result.setCoefficientB(b);
         return result;

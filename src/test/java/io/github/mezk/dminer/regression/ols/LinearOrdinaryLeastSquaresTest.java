@@ -7,15 +7,16 @@ public class LinearOrdinaryLeastSquaresTest {
 
     @Test
     public void testProcess() {
+        // y = 2x + 4
         double[][] inputData = {
             {1, 2, 3, 4, 5, 6,},
-            {5.2, 6.3, 7.1, 8.5, 9.2, 10.0},
+            {6, 8, 10, 12, 14, 16},
         };
-        LinearOrdinaryLeastSquares osl = new LinearOrdinaryLeastSquares();
-        osl.process(inputData);
+        final LinearOrdinaryLeastSquares osl = new LinearOrdinaryLeastSquares();
+        final Result result = osl.process(inputData);
 
-        Assert.assertEquals(0.9742857142857139, osl.getResult().getCoefficientA(), 0.0000000000000001);
-        Assert.assertEquals(4.3066666666666675, osl.getResult().getCoefficientB(), 0.0000000000000001);
+        Assert.assertEquals(2.0, result.getCoefficientA(), 0.0000000000000001);
+        Assert.assertEquals(4.0, result.getCoefficientB(), 0.0000000000000001);
     }
 
     @Test
