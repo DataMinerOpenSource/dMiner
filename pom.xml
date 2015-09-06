@@ -25,21 +25,6 @@
         <version>${maven.junit.plugin.version}</version>
     </dependency>
     <dependency>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-server</artifactId>
-        <version>${maven.jetty-server.plugin.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.eclipse.jetty</groupId>
-        <artifactId>jetty-webapp</artifactId>
-        <version>${maven.jetty-webapp.plugin.version}</version>
-    </dependency>
-    <dependency>
-        <groupId>org.freemarker</groupId>
-        <artifactId>freemarker</artifactId>
-        <version>${maven.freemarker.plugin.version}</version>
-    </dependency>
-    <dependency>
         <groupId>org.jacoco</groupId>
         <artifactId>org.jacoco.agent</artifactId>
         <version>${maven.jacoco.plugin.version}</version>
