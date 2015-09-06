@@ -18,19 +18,4 @@ public class LinearOrdinaryLeastSquaresTest {
         Assert.assertEquals(2.0, result.getCoefficientA(), 0.0000000000000001);
         Assert.assertEquals(4.0, result.getCoefficientB(), 0.0000000000000001);
     }
-
-    @Test
-    public void testSum() {
-        double[] data = {1,2,3,};
-        LinearOrdinaryLeastSquares osl = new LinearOrdinaryLeastSquares();
-        Assert.assertEquals(6.0, osl.sum(data), 0.01);
-    }
-
-    @Test
-    public void testSumOfProducts() {
-        double[] data1 = {1,2,3,};
-        double[] data2 = {1,2,3,};
-        LinearOrdinaryLeastSquares osl = new LinearOrdinaryLeastSquares();
-        Assert.assertEquals(14.0, osl.sumOfProducts(data1, data2), 0.01);
-    }
 }

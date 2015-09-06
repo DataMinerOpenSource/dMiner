@@ -1,5 +1,7 @@
 package io.github.mezk.dminer.regression.ols;
 
+import edu.stanford.nlp.math.ArrayMath;
+
 /**
  * Ordinary Least Squares method for linear function.
  *
@@ -10,10 +12,10 @@ public class LinearOrdinaryLeastSquares extends AbstractOrdinaryLeastSquares {
     @Override
     public strictfp Result process(double[][] inputData) {
 
-        final double sumX = sum(inputData[0]);
-        final double sumY = sum(inputData[1]);
-        final double sumXX = sumOfProducts(inputData[0], inputData[0]);
-        final double sumXY = sumOfProducts(inputData[0], inputData[1]);
+        final double sumX = ArrayMath.sum(inputData[0]);
+        final double sumY = ArrayMath.sum(inputData[1]);
+        final double sumXX = ArrayMath.sumSquared(inputData[0]);
+        final double sumXY = ArrayMath.dotProduct(inputData[0], inputData[1]);
         final double squaredSumX = StrictMath.pow(sumX, 2);
 
         final double n = inputData[0].length;
