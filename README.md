@@ -1,7 +1,7 @@
 **dMiner: Data Mining Software in Java**
 ---------------------------------------
 
-Build status: [![Build Status](https://travis-ci.org/MEZk/dMiner.svg)](https://travis-ci.org/MEZk/dMiner)
+[![Build Status](https://travis-ci.org/MEZk/dMiner.svg)](https://travis-ci.org/MEZk/dMiner) [![Dependency Status](https://www.versioneye.com/user/projects/55ebe626211c6b001f000f67/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55ebe626211c6b001f000f67)
 
 dMiner is a collection of machine learning algorithms for data mining tasks. 
 The algorithms can be applied directly to a dataset or called from your own Java code.
