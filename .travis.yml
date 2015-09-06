@@ -6,7 +6,7 @@ matrix:
   include:
 
     # verify
-    - jdk: oraclejdk7
+    - jdk: oraclejdk8
       env: DESC="mvn_clean_verify"
       script: "mvn clean verify"
 
