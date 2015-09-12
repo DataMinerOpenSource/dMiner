@@ -11,6 +11,6 @@ dMiner contains tools for
  
 It is also well-suited for developing new machine learning schemes.
 
-dMiner is open source software issued under the [GNU General Public License](http://www.gnu.org/licenses/gpl.html).
+dMiner is open source software issued under the [GNU General Public License](http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html).
 
 [**dMiner wiki**](https://github.com/MEZk/dMiner/wiki)
