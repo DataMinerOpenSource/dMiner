@@ -1,6 +1,6 @@
-package io.github.mezk.dminer.regression.ols;
+package io.github.mezk.dminer.regression.osl;
 
-import edu.stanford.nlp.math.ArrayMath;
+import io.github.mezk.dminer.utils.ArrayMath;
 
 /**
  * Ordinary Least Squares method for linear function.

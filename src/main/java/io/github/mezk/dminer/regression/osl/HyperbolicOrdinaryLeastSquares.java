@@ -1,4 +1,4 @@
-package io.github.mezk.dminer.regression.ols;
+package io.github.mezk.dminer.regression.osl;
 
 /**
  * Ordinary Least Squares method for hyperbolic function.

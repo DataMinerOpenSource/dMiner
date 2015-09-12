@@ -1,4 +1,4 @@
-package io.github.mezk.dminer.regression.ols;
+package io.github.mezk.dminer.regression.osl;
 
 /**
  * Contains util methods for Ordinary Least Squares (OLS) method.
