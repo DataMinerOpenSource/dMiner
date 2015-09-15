@@ -16,6 +16,7 @@ public class HyperbolicOrdinaryLeastSquaresTest {
 
         Assert.assertEquals(0.5, result.getCoefficientA(), 0.0000001);
         Assert.assertEquals(2.0, result.getCoefficientB(), 0.0000001);
+        Assert.assertTrue(Math.abs(result.getCorrelationCoefficient()) > 0.7);
     }
 
     @Test(expected = IllegalArgumentException.class)

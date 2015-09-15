@@ -1,11 +1,13 @@
 package io.github.mezk.dminer.regression.osl;
 
 import io.github.mezk.dminer.utils.ArrayMath;
+import io.github.mezk.dminer.utils.StatsUtils;
 
 /**
  * Ordinary Least Squares method for logarithmic function.
  *
  * @author Andrei Selkin
+ * @author Vladislav Lisetskiy
  */
 public class LogarithmicOrdinaryLeastSquares extends LinearOrdinaryLeastSquares {
 
@@ -19,11 +21,22 @@ public class LogarithmicOrdinaryLeastSquares extends LinearOrdinaryLeastSquares 
         final double a = linearOslResult.getCoefficientA();
         final double b = linearOslResult.getCoefficientB();
 
-        //TODO: Calculate correlation coefficient.
-
         final Result result = new Result();
         result.setCoefficientA(a);
         result.setCoefficientB(b);
+        result.setCorrelationCoefficient(
+                StatsUtils.calculateLinearCorrelationCoefficient(
+                        inputData[0], calculateFunctionValues(inputData[0], a, b)));
+        return result;
+    }
+
+    @Override
+    public strictfp double[] calculateFunctionValues(
+            double[] x, double a, double b) {
+        final double[] result = new double[x.length];
+        for (int i = 0; i < x.length; i++) {
+            result[i] = a * StrictMath.log(x[i]) + b;
+        }
         return result;
     }
 }

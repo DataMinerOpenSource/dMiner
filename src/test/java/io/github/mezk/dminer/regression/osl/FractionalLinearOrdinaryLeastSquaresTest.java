@@ -16,5 +16,6 @@ public class FractionalLinearOrdinaryLeastSquaresTest {
 
         Assert.assertEquals(2.0, result.getCoefficientA(), 0.0000001);
         Assert.assertEquals(4.0, result.getCoefficientB(), 0.0000001);
+        Assert.assertTrue(Math.abs(result.getCorrelationCoefficient()) > 0.7);
     }
 }
