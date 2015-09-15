@@ -139,7 +139,7 @@
                                     <element>PACKAGE</element>
                                     <includes><include>io.github.mezk.dminer.utils</include></includes>
                                     <limits>
-                                        <limit><counter>LINE</counter><value>COVEREDRATIO</value><minimum>0.52</minimum></limit>
+                                        <limit><counter>LINE</counter><value>COVEREDRATIO</value><minimum>0.55</minimum></limit>
                                         <limit><counter>BRANCH</counter><value>COVEREDRATIO</value><minimum>0.78</minimum></limit>
                                     </limits>
                                 </rule>
