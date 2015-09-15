@@ -1,5 +1,7 @@
 package io.github.mezk.dminer.regression.osl;
 
+import java.util.Arrays;
+
 import io.github.mezk.dminer.utils.ArrayMath;
 import io.github.mezk.dminer.utils.StatsUtils;
 
@@ -13,6 +15,12 @@ public class LogarithmicOrdinaryLeastSquares extends LinearOrdinaryLeastSquares 
 
     @Override
     public Result process(double[][] inputData) {
+
+        if (Arrays.stream(inputData[0]).filter(x -> x < 0.0).toArray().length != 0) {
+            throw new IllegalArgumentException("Input data contains argument "
+                + "which is lower than zero");
+        }
+
         final double[][] convertedInputData = new double[inputData[0].length][inputData[1].length];
         convertedInputData[0] = ArrayMath.log(inputData[0]);
         convertedInputData[1] = inputData[1];
