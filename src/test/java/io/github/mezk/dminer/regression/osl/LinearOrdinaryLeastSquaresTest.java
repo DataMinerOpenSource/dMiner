@@ -17,5 +17,6 @@ public class LinearOrdinaryLeastSquaresTest {
 
         Assert.assertEquals(2.0, result.getCoefficientA(), 0.0000000000000001);
         Assert.assertEquals(4.0, result.getCoefficientB(), 0.0000000000000001);
+        Assert.assertTrue(result.getCorrelationCoefficient() > 0.7);
     }
 }

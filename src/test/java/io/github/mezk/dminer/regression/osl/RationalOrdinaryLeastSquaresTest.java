@@ -16,5 +16,6 @@ public class RationalOrdinaryLeastSquaresTest {
 
         Assert.assertEquals(2.0, result.getCoefficientA(), 0.00000001);
         Assert.assertEquals(2.0, result.getCoefficientB(), 0.00000001);
+        Assert.assertTrue(result.getCorrelationCoefficient() > 0.7);
     }
 }
