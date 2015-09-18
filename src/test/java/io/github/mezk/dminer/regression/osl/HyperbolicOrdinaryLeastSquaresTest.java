@@ -11,7 +11,7 @@ public class HyperbolicOrdinaryLeastSquaresTest {
             {1, 2, 3, 4, 5, 6},
             {2.5, 2.25, 2.166666667, 2.125, 2.1, 2.083333333},
         };
-        final AbstractOrdinaryLeastSquares osl = new HyperbolicOrdinaryLeastSquares();
+        final OrdinaryLeastSquares osl = new HyperbolicOrdinaryLeastSquares();
         final Result result = osl.process(inputData);
 
         Assert.assertEquals(0.5, result.getCoefficientA(), 0.0000001);
@@ -26,7 +26,7 @@ public class HyperbolicOrdinaryLeastSquaresTest {
             {1, 2, 0, 4, 5, 6},
             {2.5, 2.25, 2.166666667, 2.125, 2.1, 2.083333333},
         };
-        final AbstractOrdinaryLeastSquares osl = new HyperbolicOrdinaryLeastSquares();
+        final OrdinaryLeastSquares osl = new HyperbolicOrdinaryLeastSquares();
         osl.process(inputData);
     }
 }

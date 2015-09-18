@@ -11,7 +11,7 @@ public class PowerOrdinaryLeastSquaresTest {
             {1, 2, 3, 4, 5, 6},
             {2, 8, 18, 32, 50, 72},
         };
-        final AbstractOrdinaryLeastSquares osl = new PowerOrdinaryLeastSquares();
+        final OrdinaryLeastSquares osl = new PowerOrdinaryLeastSquares();
         final Result result = osl.process(inputData);
 
         Assert.assertEquals(2.0, result.getCoefficientA(), 0.0000000000000001);

@@ -12,7 +12,7 @@ public class ExponentialOrdinaryLeastSquaresTest {
             {14.778112198, 109.196300066, 806.857586985,
              5961.915974083, 44052.931589613, 325509.582838008},
         };
-        final AbstractOrdinaryLeastSquares osl = new ExponentialOrdinaryLeastSquares();
+        final OrdinaryLeastSquares osl = new ExponentialOrdinaryLeastSquares();
         final Result result = osl.process(inputData);
 
         Assert.assertEquals(2.0, result.getCoefficientA(), 0.00000000001);

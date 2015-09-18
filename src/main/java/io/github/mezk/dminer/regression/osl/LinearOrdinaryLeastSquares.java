@@ -9,7 +9,7 @@ import io.github.mezk.dminer.utils.StatsUtils;
  * @author Andrei Selkin
  * @author Vladislav Lisetskiy
  */
-public class LinearOrdinaryLeastSquares extends AbstractOrdinaryLeastSquares {
+public class LinearOrdinaryLeastSquares implements OrdinaryLeastSquares {
 
     @Override
     public strictfp Result process(double[][] inputData) {
