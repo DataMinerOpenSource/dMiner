@@ -7,6 +7,8 @@ import io.github.mezk.dminer.utils.StatsUtils;
 
 /**
  * Ordinary Least Squares method for logarithmic function.
+ * Logarithmic function is a relation of the form
+ * y = a * ln(x) + b
  *
  * @author Andrei Selkin
  * @author Vladislav Lisetskiy
@@ -29,12 +31,14 @@ public class LogarithmicOrdinaryLeastSquares extends LinearOrdinaryLeastSquares 
         final double a = linearOslResult.getCoefficientA();
         final double b = linearOslResult.getCoefficientB();
 
+        final double[] actualValuesOfLinearFunction = calculateFunctionValues(inputData[0], a, b);
+        final double correlationCoefficient = StatsUtils.calculateLinearCorrelationCoefficient(
+            inputData[0], actualValuesOfLinearFunction);
+
         final Result result = new Result();
         result.setCoefficientA(a);
         result.setCoefficientB(b);
-        result.setCorrelationCoefficient(
-                StatsUtils.calculateLinearCorrelationCoefficient(
-                        inputData[0], calculateFunctionValues(inputData[0], a, b)));
+        result.setCorrelationCoefficient(correlationCoefficient);
         return result;
     }
 

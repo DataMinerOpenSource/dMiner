@@ -5,6 +5,8 @@ import io.github.mezk.dminer.utils.StatsUtils;
 
 /**
  * Ordinary Least Squares method for linear function.
+ * Linear function is a relation of the form
+ * y = a * x + b
  *
  * @author Andrei Selkin
  * @author Vladislav Lisetskiy
@@ -24,18 +26,19 @@ public class LinearOrdinaryLeastSquares implements OrdinaryLeastSquares {
         final double a = (n * sumXY - sumX * sumY) / (n * sumXX - squaredSumX);
         final double b = (sumY - a * sumX) / n;
 
+        final double[] actualValuesOfLinearFunction = calculateFunctionValues(inputData[0], a, b);
+        final double correlationCoefficient = StatsUtils.calculateLinearCorrelationCoefficient(
+            inputData[0], actualValuesOfLinearFunction);
+
         final Result result = new Result();
         result.setCoefficientA(a);
         result.setCoefficientB(b);
-        result.setCorrelationCoefficient(
-                StatsUtils.calculateLinearCorrelationCoefficient(
-                        inputData[0], calculateFunctionValues(inputData[0], a, b)));
+        result.setCorrelationCoefficient(correlationCoefficient);
         return result;
     }
 
     @Override
-    public strictfp double[] calculateFunctionValues(
-            double[] x, double a, double b) {
+    public strictfp double[] calculateFunctionValues(double[] x, double a, double b) {
         final double[] result = new double[x.length];
         for (int i = 0; i < x.length; i++) {
             result[i] = a * x[i] + b;

@@ -1,7 +1,10 @@
 package io.github.mezk.dminer.regression.osl;
 
 /**
- * Declares util methods for Ordinary Least Squares (OLS) method.
+ * Declares util methods for
+ * <a href="https://en.wikipedia.org/wiki/Ordinary_least_squares">
+ *     Ordinary Least Squares (OLS)</a>
+ * method.
  *
  * @author Andrei Selkin
  * @author Vladislav Lisetskiy

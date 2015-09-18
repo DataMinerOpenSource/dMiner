@@ -5,6 +5,8 @@ import io.github.mezk.dminer.utils.StatsUtils;
 
 /**
  * Ordinary Least Squares method for exponential function.
+ * Exponential function is a relation of the form
+ * y = a * e ^ b * x
  *
  * @author Andrei Selkin
  * @author Vladislav Lisetskiy
@@ -23,18 +25,19 @@ public class ExponentialOrdinaryLeastSquares extends LinearOrdinaryLeastSquares 
         final double convertedB = linearOslResult.getCoefficientB();
         final double b = StrictMath.exp(convertedB);
 
+        final double[] actualValuesOfFunction = calculateFunctionValues(inputData[0], a, b);
+        final double correlationCoefficient = StatsUtils.calculateLinearCorrelationCoefficient(
+            inputData[0], actualValuesOfFunction);
+
         final Result result = new Result();
         result.setCoefficientA(a);
         result.setCoefficientB(b);
-        result.setCorrelationCoefficient(
-                StatsUtils.calculateLinearCorrelationCoefficient(
-                        inputData[0], calculateFunctionValues(inputData[0], a, b)));
+        result.setCorrelationCoefficient(correlationCoefficient);
         return result;
     }
 
     @Override
-    public strictfp double[] calculateFunctionValues(
-            double[] x, double a, double b) {
+    public strictfp double[] calculateFunctionValues(double[] x, double a, double b) {
         final double[] result = new double[x.length];
         for (int i = 0; i < x.length; i++) {
             result[i] = a * StrictMath.exp(x[i] * b);
