@@ -17,7 +17,7 @@ public final class Result {
     private double correlationCoefficient;
 
     public double getCoefficientA() {
-        return coefficientA;
+        return this.coefficientA;
     }
 
     public void setCoefficientA(double coefficientA) {
@@ -25,7 +25,7 @@ public final class Result {
     }
 
     public double getCoefficientB() {
-        return coefficientB;
+        return this.coefficientB;
     }
 
     public void setCoefficientB(double coefficientB) {
@@ -33,7 +33,7 @@ public final class Result {
     }
 
     public double getCorrelationCoefficient() {
-        return correlationCoefficient;
+        return this.correlationCoefficient;
     }
 
     public void setCorrelationCoefficient(double correlationCoefficient) {

@@ -22,7 +22,8 @@ public class RationalOrdinaryLeastSquares extends LinearOrdinaryLeastSquares {
         final double a = linearOslResult.getCoefficientB();
         final double b = linearOslResult.getCoefficientA();
 
-        final double[] actualValuesOfLinearFunction = calculateFunctionValues(inputData[0], a, b);
+        final double[] actualValuesOfLinearFunction =
+            this.calculateFunctionValues(inputData[0], a, b);
         final double correlationCoefficient = StatsUtils.calculateLinearCorrelationCoefficient(
             inputData[0], actualValuesOfLinearFunction);
 

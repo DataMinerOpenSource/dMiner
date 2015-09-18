@@ -71,11 +71,11 @@
     <module name="EqualsHashCode"/>
     <module name="OneStatementPerLine"/>
 
-    <!-- module name="IllegalCatch"/ -->
+    <module name="IllegalCatch"/>
 
-    <!--<module name="ImportControl">-->
-      <!--<property name="file" value="${checkstyle.importcontrol.file}"/>-->
-    <!--</module>-->
+    <module name="ImportControl">
+      <property name="file" value="config/import-control.xml"/>
+    </module>
 
     <module name="ImportOrder">
       <property name="groups" value="/^javax?\./,org"/>
@@ -293,7 +293,7 @@
       <property name="max" value="7"/>
     </module>
 
-    <!--<module name="CommentsIndentation"/>-->
+    <module name="CommentsIndentation"/>
     <module name="HiddenField">
         <property name="ignoreConstructorParameter" value="true"/>
         <property name="ignoreSetter" value="true"/>
@@ -305,16 +305,15 @@
     <module name="AvoidInlineConditionals"/>
     <module name="IllegalType"/>
 
-<!--
     <module name="ClassDataAbstractionCoupling"/>
     <module name="ClassFanOutComplexity"/>
     <module name="ExecutableStatementCount"/>
-    <module name="FinalParameters"/>
+    <!--<module name="FinalParameters"/>-->
     <module name="IllegalToken"/>
     <module name="JavadocParagraph"/>
     <module name="JavadocTagContinuationIndentation"/>
     <module name="JavaNCSS"/>
-    <module name="MissingCtor"/>
+    <!--<module name="MissingCtor"/>-->
     <module name="MultipleStringLiterals"/>
     <module name="NPathComplexity"/>
     <module name="OneTopLevelClass"/>
@@ -327,7 +326,6 @@
     <module name="SummaryJavadoc"/>
     <module name="VariableDeclarationUsageDistance"/>
     <module name="WriteTag"/>
--->
 <!--
     We should postpone DesignForExtension Check enforcement till next major release 
     as it will seriously brake backward compatibility with existing usage of our library

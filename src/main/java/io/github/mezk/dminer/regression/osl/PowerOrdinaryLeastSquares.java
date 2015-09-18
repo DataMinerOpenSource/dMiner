@@ -25,7 +25,8 @@ public class PowerOrdinaryLeastSquares extends LinearOrdinaryLeastSquares {
         final double convertedB = linearOslResult.getCoefficientB();
         final double b = StrictMath.exp(convertedB);
 
-        final double[] actualValuesOfLinearFunction = calculateFunctionValues(inputData[0], a, b);
+        final double[] actualValuesOfLinearFunction =
+            this.calculateFunctionValues(inputData[0], a, b);
         final double correlationCoefficient = StatsUtils.calculateLinearCorrelationCoefficient(
             inputData[0], actualValuesOfLinearFunction);
 

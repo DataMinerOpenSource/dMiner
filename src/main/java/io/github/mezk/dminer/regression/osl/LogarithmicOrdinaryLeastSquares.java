@@ -31,7 +31,8 @@ public class LogarithmicOrdinaryLeastSquares extends LinearOrdinaryLeastSquares 
         final double a = linearOslResult.getCoefficientA();
         final double b = linearOslResult.getCoefficientB();
 
-        final double[] actualValuesOfLinearFunction = calculateFunctionValues(inputData[0], a, b);
+        final double[] actualValuesOfLinearFunction =
+            this.calculateFunctionValues(inputData[0], a, b);
         final double correlationCoefficient = StatsUtils.calculateLinearCorrelationCoefficient(
             inputData[0], actualValuesOfLinearFunction);
 

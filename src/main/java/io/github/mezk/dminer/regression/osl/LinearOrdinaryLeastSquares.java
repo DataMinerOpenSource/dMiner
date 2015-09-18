@@ -26,7 +26,8 @@ public class LinearOrdinaryLeastSquares implements OrdinaryLeastSquares {
         final double a = (n * sumXY - sumX * sumY) / (n * sumXX - squaredSumX);
         final double b = (sumY - a * sumX) / n;
 
-        final double[] actualValuesOfLinearFunction = calculateFunctionValues(inputData[0], a, b);
+        final double[] actualValuesOfLinearFunction =
+            this.calculateFunctionValues(inputData[0], a, b);
         final double correlationCoefficient = StatsUtils.calculateLinearCorrelationCoefficient(
             inputData[0], actualValuesOfLinearFunction);
 

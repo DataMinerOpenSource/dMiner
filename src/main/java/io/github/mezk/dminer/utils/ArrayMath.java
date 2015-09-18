@@ -82,8 +82,7 @@ public final strictfp class ArrayMath {
      * elements of the second array.
      * @param a first array.
      * @param b second array.
-     * @return the sum of products of elements of the first array and
-     * elements of the second array.
+     * @return the sum of products of elements of the first array and elements of the second array.
      */
     public static double dotProduct(double[] a, double[] b) {
         if (a.length != b.length) {

@@ -25,7 +25,8 @@ public class ExponentialOrdinaryLeastSquares extends LinearOrdinaryLeastSquares 
         final double convertedB = linearOslResult.getCoefficientB();
         final double b = StrictMath.exp(convertedB);
 
-        final double[] actualValuesOfFunction = calculateFunctionValues(inputData[0], a, b);
+        final double[] actualValuesOfFunction =
+            this.calculateFunctionValues(inputData[0], a, b);
         final double correlationCoefficient = StatsUtils.calculateLinearCorrelationCoefficient(
             inputData[0], actualValuesOfFunction);
 
