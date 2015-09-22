@@ -1,4 +1,4 @@
-package io.github.mezk.dminer.regression.osl;
+package io.github.mezk.dminer.regression.ols;
 
 import io.github.mezk.dminer.utils.ArrayMath;
 import io.github.mezk.dminer.utils.StatsUtils;

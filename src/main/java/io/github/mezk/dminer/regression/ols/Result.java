@@ -1,4 +1,4 @@
-package io.github.mezk.dminer.regression.osl;
+package io.github.mezk.dminer.regression.ols;
 
 /**
  * A result of Ordinary Least Squares method.

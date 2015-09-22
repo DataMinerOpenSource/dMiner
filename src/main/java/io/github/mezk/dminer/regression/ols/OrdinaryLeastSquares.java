@@ -1,4 +1,4 @@
-package io.github.mezk.dminer.regression.osl;
+package io.github.mezk.dminer.regression.ols;
 
 /**
  * Declares util methods for

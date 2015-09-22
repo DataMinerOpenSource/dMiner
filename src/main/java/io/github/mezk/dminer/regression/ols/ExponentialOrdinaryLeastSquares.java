@@ -1,34 +1,29 @@
-package io.github.mezk.dminer.regression.osl;
-
-import org.apache.commons.lang3.ArrayUtils;
+package io.github.mezk.dminer.regression.ols;
 
 import io.github.mezk.dminer.utils.ArrayMath;
 import io.github.mezk.dminer.utils.StatsUtils;
 
 /**
- * Ordinary Least Squares method for hyperbolic function.
- * Hyperbolic function is a relation of the form
- * y = 1 / a * x + b
+ * Ordinary Least Squares method for exponential function.
+ * Exponential function is a relation of the form
+ * y = a * e ^ b * x
  *
  * @author Andrei Selkin
  * @author Vladislav Lisetskiy
  */
-public class HyperbolicOrdinaryLeastSquares extends LinearOrdinaryLeastSquares {
+public class ExponentialOrdinaryLeastSquares extends LinearOrdinaryLeastSquares {
 
     @Override
-    public strictfp Result process(double[][] inputData) throws IllegalArgumentException {
-
-        if (ArrayUtils.contains(inputData[0], 0.0)) {
-            throw new IllegalArgumentException("x cannot be zero in hyperbolic function.");
-        }
+    public strictfp Result process(double[][] inputData) {
 
         final double[][] convertedInputData = new double[inputData[0].length][inputData[1].length];
-        convertedInputData[0] = ArrayMath.pow(inputData[0], -1);
-        convertedInputData[1] = inputData[1];
+        convertedInputData[0] = inputData[0];
+        convertedInputData[1] = ArrayMath.log(inputData[1]);
 
         final Result linearOslResult = super.process(convertedInputData);
         final double a = linearOslResult.getCoefficientA();
-        final double b = linearOslResult.getCoefficientB();
+        final double convertedB = linearOslResult.getCoefficientB();
+        final double b = StrictMath.exp(convertedB);
 
         final double[] actualValuesOfFunction =
             this.calculateFunctionValues(inputData[0], a, b);
@@ -46,7 +41,7 @@ public class HyperbolicOrdinaryLeastSquares extends LinearOrdinaryLeastSquares {
     public strictfp double[] calculateFunctionValues(double[] x, double a, double b) {
         final double[] result = new double[x.length];
         for (int i = 0; i < x.length; i++) {
-            result[i] = a / x[i] + b;
+            result[i] = a * StrictMath.exp(x[i] * b);
         }
         return result;
     }
