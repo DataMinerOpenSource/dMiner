@@ -17,6 +17,9 @@
         <maven.freemarker.plugin.version>2.3.20</maven.freemarker.plugin.version>
         <maven.checkstyle.plugin.version>2.16</maven.checkstyle.plugin.version>
         <checkstyle.version>6.10.1</checkstyle.version>
+        <apache.commons.lang3.version>3.4</apache.commons.lang3.version>
+        <apache.commons.io.version>2.4</apache.commons.io.version>
+        <guava.version>18.0</guava.version>
     </properties>
 
     <dependencies>
@@ -35,7 +38,17 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-lang3</artifactId>
-      <version>3.4</version>
+      <version>${apache.commons.lang3.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>${apache.commons.io.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava.version}</version>
     </dependency>
     </dependencies>
 
@@ -119,6 +132,9 @@
                             <goal>check</goal>
                         </goals>
                         <configuration>
+                            <excludes>
+                                <exclude>io/github/mezk/dminer/utils/TestUtils.class</exclude>
+                            </excludes>
                             <dataFile>${project.build.directory}/jacoco/jacoco.exec</dataFile>
                             <rules>
                                 <rule>
@@ -193,6 +209,9 @@
                 <version>${maven.jacoco.plugin.version}</version>
                 <configuration>
                     <dataFile>${project.build.directory}/jacoco/jacoco.exec</dataFile>
+                    <excludes>
+                        <exclude>io/github/mezk/dminer/utils/TestUtils.class</exclude>
+                    </excludes>
                 </configuration>
                 <reportSets>
                     <reportSet>
