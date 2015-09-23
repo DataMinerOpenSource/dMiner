@@ -2,8 +2,6 @@ package io.github.mezk.dminer.utils;
 
 import org.junit.Test;
 
-import io.github.mezk.dminer.TestUtils;
-
 public class ArrayMathTest {
 
     @Test
