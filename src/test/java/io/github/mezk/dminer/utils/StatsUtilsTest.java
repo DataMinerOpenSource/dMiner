@@ -13,4 +13,9 @@ public class StatsUtilsTest {
     public void testDotProductWrongArguments() {
         StatsUtils.correlation(new double[1], new double[2]);
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testRootMeanSquaredError() {
+        StatsUtils.rootMeanSquaredError(new double[1], new double[2]);
+    }
 }
