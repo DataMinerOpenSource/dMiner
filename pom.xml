@@ -20,6 +20,8 @@
         <apache.commons.lang3.version>3.4</apache.commons.lang3.version>
         <apache.commons.io.version>2.4</apache.commons.io.version>
         <guava.version>18.0</guava.version>
+        <plexus.compiler.javac.errorprone>2.6</plexus.compiler.javac.errorprone>
+        <error.prone.core>2.0.5</error.prone.core>
     </properties>
 
     <dependencies>
@@ -86,12 +88,12 @@
                     <dependency>
                         <groupId>org.codehaus.plexus</groupId>
                         <artifactId>plexus-compiler-javac-errorprone</artifactId>
-                        <version>2.5</version>
+                        <version>${plexus.compiler.javac.errorprone}</version>
                     </dependency>
                     <dependency>
                         <groupId>com.google.errorprone</groupId>
                         <artifactId>error_prone_core</artifactId>
-                        <version>2.0.4</version>
+                        <version>${error.prone.core}</version>
                     </dependency>
                 </dependencies>
             </plugin>
