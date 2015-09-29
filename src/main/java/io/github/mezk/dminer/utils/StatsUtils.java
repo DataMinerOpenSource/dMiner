@@ -19,8 +19,7 @@ public final strictfp class StatsUtils {
      * @param y values.
      * @return linear correlation coefficient.
      */
-    public static double calculateLinearCorrelationCoefficient(
-        double[] x, double[] y) {
+    public static double correlation(double[] x, double[] y) {
 
         if (x.length != y.length) {
             throw new IllegalArgumentException("Can't calculate "
@@ -28,6 +27,7 @@ public final strictfp class StatsUtils {
                 + "multiple different lengths: a.length="
                 + x.length + "b.length=" + y.length);
         }
+
         final double correlationCoefficient;
 
         final double n = x.length;
@@ -39,13 +39,44 @@ public final strictfp class StatsUtils {
 
         final double sumXX = ArrayMath.sumSquared(x);
         final double sumYY = ArrayMath.sumSquared(y);
-        final double squaredAverageX = StrictMath.pow(averageX, 2);
-        final double squaredAverageY = StrictMath.pow(averageY, 2);
-        final double denominator =
-            StrictMath.sqrt((sumXX - n * squaredAverageX) * (sumYY - n * squaredAverageY));
+        final double squaredAverageX = Math.pow(averageX, 2);
+        final double squaredAverageY = Math.pow(averageY, 2);
+        final double denominator = Math.sqrt(
+            (sumXX - n * squaredAverageX) * (sumYY - n * squaredAverageY));
 
         correlationCoefficient = numerator / denominator;
         return correlationCoefficient;
     }
 
+    /**
+     * Calculates the square root of the mean/average
+     * of the square of all of the error.
+     * The use of root mean squared error (RMSE) is very
+     * common and it makes an excellent general purpose error
+     * metric for numerical predictions.
+     * Compared to the similar Mean Absolute Error,
+     * RMSE amplifies and severely punishes large errors.
+     * @param yExpected expected values.
+     * @param yActual actual values.
+     * @return root mean squared error.
+     */
+    public static double rootMeanSquaredError(double[] yExpected, double[] yActual) {
+
+        if (yExpected.length != yActual.length) {
+            throw new IllegalArgumentException("Can not calculate "
+                + "root mean squared error of "
+                + "multiple different lengths: yExpected.length="
+                + yExpected.length + "yActual.length=" + yActual.length);
+        }
+
+        double sumSquared = 0;
+        for (int i = 0; i < yExpected.length; i++) {
+            final double difference = yExpected[i] - yActual[i];
+            sumSquared += StrictMath.pow(difference, 2);
+        }
+
+        final double n = yExpected.length;
+        final double meanSquaredError = sumSquared / n;
+        return StrictMath.sqrt(meanSquaredError);
+    }
 }

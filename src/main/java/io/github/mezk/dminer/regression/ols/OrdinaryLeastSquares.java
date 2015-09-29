@@ -12,19 +12,21 @@ package io.github.mezk.dminer.regression.ols;
 public interface OrdinaryLeastSquares {
 
     /**
-     * Processes input data.
+     * Performs a regression on input data nd outputs a RegressionResults object.
      * @param inputData input data.
-     * @return result of processing.
+     * @return RegressionResults object which acts as a container of regression output.
      */
-    Result process(double[][] inputData);
+    RegressionResults regress(double[][] inputData);
 
     /**
-     * Calculates values of a function with the coefficients.
-     * @param xInput input values of x.
-     * @param coefficientA coefficient A.
-     * @param coefficientB coefficient B.
-     * @return array of function values.
+     * Returns the "predicted" y value associated with the supplied
+     * x value, based on the data that has been added to the model
+     * when a method is activated.
+     * @param xValues input x values.
+     * @param coefficientA coefficient a.
+     * @param coefficientB coefficient b.
+     * @return array of predicted y values.
      */
-    double[] calculateFunctionValues(double[] xInput,
-                                     double coefficientA, double coefficientB);
+    double[] predictFunctionValues(double[] xValues,
+                                   double coefficientA, double coefficientB);
 }

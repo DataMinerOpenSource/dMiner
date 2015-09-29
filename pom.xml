@@ -140,8 +140,8 @@
                                 <rule>
                                     <element>BUNDLE</element>
                                     <limits>
-                                        <limit><counter>LINE</counter><value>COVEREDRATIO</value><minimum>1.00</minimum></limit>
-                                        <limit><counter>BRANCH</counter><value>COVEREDRATIO</value><minimum>1.00</minimum></limit>
+                                        <limit><counter>LINE</counter><value>COVEREDRATIO</value><minimum>0.99</minimum></limit>
+                                        <limit><counter>BRANCH</counter><value>COVEREDRATIO</value><minimum>0.97</minimum></limit>
                                     </limits>
                                 </rule>
                                 <rule>
@@ -156,8 +156,8 @@
                                     <element>PACKAGE</element>
                                     <includes><include>io.github.mezk.dminer.utils</include></includes>
                                     <limits>
-                                        <limit><counter>LINE</counter><value>COVEREDRATIO</value><minimum>1.00</minimum></limit>
-                                        <limit><counter>BRANCH</counter><value>COVEREDRATIO</value><minimum>1.00</minimum></limit>
+                                        <limit><counter>LINE</counter><value>COVEREDRATIO</value><minimum>0.98</minimum></limit>
+                                        <limit><counter>BRANCH</counter><value>COVEREDRATIO</value><minimum>0.95</minimum></limit>
                                     </limits>
                                 </rule>
                             </rules>

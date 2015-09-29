@@ -1,5 +1,7 @@
 package io.github.mezk.dminer.regression.ols;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import io.github.mezk.dminer.utils.ArrayMath;
 import io.github.mezk.dminer.utils.StatsUtils;
 
@@ -14,34 +16,41 @@ import io.github.mezk.dminer.utils.StatsUtils;
 public class PowerOrdinaryLeastSquares extends LinearOrdinaryLeastSquares {
 
     @Override
-    public  strictfp Result process(double[][] inputData) {
+    public RegressionResults regress(double[][] inputData) {
 
-        final double[][] convertedInputData = new double[inputData[0].length][inputData[1].length];
+        if (ArrayUtils.contains(inputData[0], 0.0)) {
+            throw new IllegalArgumentException("Can not build Power Ordinary Least Squares"
+                + " model, because x value can not be zero.");
+        }
+
+        final double[][] convertedInputData = new double[inputData.length][inputData[1].length];
         convertedInputData[0] = ArrayMath.log(inputData[0]);
         convertedInputData[1] = ArrayMath.log(inputData[1]);
 
-        final Result linearOslResult = super.process(convertedInputData);
+        final RegressionResults linearOslResult = super.regress(convertedInputData);
         final double a = linearOslResult.getCoefficientA();
         final double convertedB = linearOslResult.getCoefficientB();
         final double b = StrictMath.exp(convertedB);
 
-        final double[] actualValuesOfLinearFunction =
-            this.calculateFunctionValues(inputData[0], a, b);
-        final double correlationCoefficient = StatsUtils.calculateLinearCorrelationCoefficient(
-            inputData[0], actualValuesOfLinearFunction);
+        final double[] predictedFunctionValues = this.predictFunctionValues(inputData[0], a, b);
+        final double correlationCoefficient = linearOslResult.getCorrelationCoefficient();
+        final double rootMeanSquaredError = StatsUtils.rootMeanSquaredError(
+            inputData[1], predictedFunctionValues);
 
-        final Result result = new Result();
-        result.setCoefficientA(a);
-        result.setCoefficientB(b);
-        result.setCorrelationCoefficient(correlationCoefficient);
-        return result;
+        final RegressionResults results = new RegressionResults();
+        results.setCoefficientA(a);
+        results.setCoefficientB(b);
+        results.setPredictedFunctionValues(predictedFunctionValues);
+        results.setCorrelationCoefficient(correlationCoefficient);
+        results.setRootMeanSquaredError(rootMeanSquaredError);
+        return results;
     }
 
     @Override
-    public strictfp double[] calculateFunctionValues(double[] x, double a, double b) {
-        final double[] result = new double[x.length];
-        for (int i = 0; i < x.length; i++) {
-            result[i] = a * StrictMath.pow(x[i], b);
+    public double[] predictFunctionValues(double[] xValues, double a, double b) {
+        final double[] result = new double[xValues.length];
+        for (int i = 0; i < xValues.length; i++) {
+            result[i] = a * StrictMath.pow(xValues[i], b);
         }
         return result;
     }

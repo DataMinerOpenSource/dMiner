@@ -30,4 +30,15 @@ public final class TestUtils {
         constructor.setAccessible(true);
         constructor.newInstance();
     }
+
+    /**
+     * Asserts that each element of values array is not NaN or Infinite.
+     * @param values values to check.
+     */
+    public static void assertNotNanOrInfinite(double[] values) {
+        for (int i = 0; i < values.length; i++) {
+            Assert.assertFalse(Double.isNaN(values[i]));
+            Assert.assertFalse(Double.isInfinite(values[i]));
+        }
+    }
 }

@@ -10,7 +10,7 @@ import com.google.common.base.CharMatcher;
 import com.google.common.base.Splitter;
 
 /**
- * Util-class that contains methods to process input files for OLS module.
+ * Util-class that contains methods to regress input files for OLS module.
  * Input file format: *.txt
  *
  * <p>File data format:

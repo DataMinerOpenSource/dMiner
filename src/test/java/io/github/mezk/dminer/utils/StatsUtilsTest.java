@@ -11,6 +11,6 @@ public class StatsUtilsTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void testDotProductWrongArguments() {
-        StatsUtils.calculateLinearCorrelationCoefficient(new double[1], new double [2]);
+        StatsUtils.correlation(new double[1], new double[2]);
     }
 }

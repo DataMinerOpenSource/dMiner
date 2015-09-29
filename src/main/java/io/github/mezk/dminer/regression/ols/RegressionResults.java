@@ -5,7 +5,7 @@ package io.github.mezk.dminer.regression.ols;
  *
  * @author Andrei Selkin
  */
-public final class Result {
+public final class RegressionResults {
 
     /** Coefficient a.*/
     private double coefficientA;
@@ -15,6 +15,12 @@ public final class Result {
 
     /** Correlation coefficient.*/
     private double correlationCoefficient;
+
+    /** Root mean squared error (RMSE). */
+    private double rootMeanSquaredError;
+
+    /** Predicted function values. */
+    private double[] predictedFunctionValues;
 
     public double getCoefficientA() {
         return this.coefficientA;
@@ -38,5 +44,21 @@ public final class Result {
 
     public void setCorrelationCoefficient(double correlationCoefficient) {
         this.correlationCoefficient = correlationCoefficient;
+    }
+
+    public double[] getPredictedFunctionValues() {
+        return this.predictedFunctionValues;
+    }
+
+    public void setPredictedFunctionValues(double[] predictedFunctionValues) {
+        this.predictedFunctionValues = predictedFunctionValues;
+    }
+
+    public double getRootMeanSquaredError() {
+        return this.rootMeanSquaredError;
+    }
+
+    public void setRootMeanSquaredError(double rootMeanSquaredError) {
+        this.rootMeanSquaredError = rootMeanSquaredError;
     }
 }

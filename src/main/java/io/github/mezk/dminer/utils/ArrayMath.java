@@ -27,7 +27,7 @@ public final strictfp class ArrayMath {
     }
 
     /**
-     * Raises each value of the array to the power of the second argument.
+     * Raises each element of the array to the power of the second argument.
      * @param a an array.
      * @param c the exponent.
      * @return the array which is a result of calculations.
