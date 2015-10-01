@@ -193,7 +193,7 @@
                             <failOnViolation>true</failOnViolation>
                             <logViolationsToConsole>true</logViolationsToConsole>
                             <maxAllowedViolations>0</maxAllowedViolations>
-                            <violationSeverity>warning</violationSeverity>
+                            <violationSeverity>error</violationSeverity>
                             <outputFileFormat>xml</outputFileFormat>
                             <cacheFile>${project.build.directory}/checkstyle/checkstyle-cachefile</cacheFile>
                             <outputFile>${project.build.directory}/checkstyle/checkstyle-report.xml</outputFile>
@@ -255,6 +255,28 @@
                     <findbugsXmlOutput>true</findbugsXmlOutput>
                     <findbugsXmlOutputDirectory>${project.build.directory}/site/findbugs</findbugsXmlOutputDirectory>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>${maven.checkstyle.plugin.version}</version>
+                <configuration>
+                    <includeResources>false</includeResources>
+                    <includeTestResources>false</includeTestResources>
+                    <configLocation>${project.basedir}/config/checkstyle_checks.xml</configLocation>
+                    <maxAllowedViolations>0</maxAllowedViolations>
+                    <violationSeverity>error</violationSeverity>
+                    <outputFileFormat>xml</outputFileFormat>
+                    <cacheFile>${project.build.directory}/checkstyle/checkstyle-cachefile</cacheFile>
+                    <outputFile>${project.build.directory}/checkstyle/checkstyle-report.xml</outputFile>
+                </configuration>
+                <reportSets>
+                    <reportSet>
+                        <reports>
+                            <report>checkstyle</report>
+                        </reports>
+                    </reportSet>
+                </reportSets>
             </plugin>
         </plugins>
     </reporting>
