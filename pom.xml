@@ -22,6 +22,7 @@
         <guava.version>18.0</guava.version>
         <plexus.compiler.javac.errorprone>2.6</plexus.compiler.javac.errorprone>
         <error.prone.core>2.0.5</error.prone.core>
+        <maven.findbugs.plugin>3.0.2</maven.findbugs.plugin>
     </properties>
 
     <dependencies>
@@ -200,6 +201,29 @@
                     </execution>
                 </executions>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${maven.findbugs.plugin}</version>
+                <configuration>
+                    <effort>Max</effort>
+                    <threshold>Low</threshold>
+                    <findbugsXmlOutput>true</findbugsXmlOutput>
+                    <xmlOutput>true</xmlOutput>
+                    <xmlOutputDirectory>${project.build.directory}/site/findbugs</xmlOutputDirectory>
+                    <findbugsXmlOutputDirectory>${project.build.directory}/site/findbugs</findbugsXmlOutputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>analyze-compile</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -222,6 +246,15 @@
                         </reports>
                     </reportSet>
                 </reportSets>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>findbugs-maven-plugin</artifactId>
+                <version>${maven.findbugs.plugin}</version>
+                <configuration>
+                    <findbugsXmlOutput>true</findbugsXmlOutput>
+                    <findbugsXmlOutputDirectory>${project.build.directory}/site/findbugs</findbugsXmlOutputDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </reporting>

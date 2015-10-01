@@ -1,5 +1,7 @@
 package io.github.mezk.dminer.regression.ols;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 /**
  * A result of Ordinary Least Squares method.
  *
@@ -20,7 +22,7 @@ public final class RegressionResults {
     private double rootMeanSquaredError;
 
     /** Predicted function values. */
-    private double[] predictedFunctionValues;
+    private double[] predictedFunctionValues = ArrayUtils.EMPTY_DOUBLE_ARRAY;
 
     public double getCoefficientA() {
         return this.coefficientA;
@@ -47,11 +49,11 @@ public final class RegressionResults {
     }
 
     public double[] getPredictedFunctionValues() {
-        return this.predictedFunctionValues;
+        return this.predictedFunctionValues.clone();
     }
 
     public void setPredictedFunctionValues(double[] predictedFunctionValues) {
-        this.predictedFunctionValues = predictedFunctionValues;
+        this.predictedFunctionValues = predictedFunctionValues.clone();
     }
 
     public double getRootMeanSquaredError() {
