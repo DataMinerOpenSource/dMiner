@@ -10,31 +10,28 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <maven.jacoco.plugin.version>0.7.5.201505241946</maven.jacoco.plugin.version>
-        <maven.junit.plugin.version>4.12</maven.junit.plugin.version>
-        <maven.jetty-server.plugin.version>9.3.0.M1</maven.jetty-server.plugin.version>
-        <maven.jetty-webapp.plugin.version>9.3.0.M1</maven.jetty-webapp.plugin.version>
-        <maven.freemarker.plugin.version>2.3.20</maven.freemarker.plugin.version>
-        <maven.checkstyle.plugin.version>2.16</maven.checkstyle.plugin.version>
-        <checkstyle.version>6.10.1</checkstyle.version>
         <apache.commons.lang3.version>3.4</apache.commons.lang3.version>
         <apache.commons.io.version>2.4</apache.commons.io.version>
         <guava.version>18.0</guava.version>
-        <plexus.compiler.javac.errorprone>2.6</plexus.compiler.javac.errorprone>
-        <error.prone.core>2.0.5</error.prone.core>
-        <maven.findbugs.plugin>3.0.2</maven.findbugs.plugin>
+        <checkstyle.version>6.10.1</checkstyle.version>
+        <maven.plugin.jacoco.version>0.7.5.201505241946</maven.plugin.jacoco.version>
+        <maven.plugin.junit.version>4.12</maven.plugin.junit.version>
+        <maven.plugin.checkstyle.version>2.16</maven.plugin.checkstyle.version>
+        <maven.plugin.plexus-compiler-errorprone.version>2.6</maven.plugin.plexus-compiler-errorprone.version>
+        <maven.plugin.errorprone.core.version>2.0.5</maven.plugin.errorprone.core.version>
+        <maven.plugin.findbugs.version>3.0.2</maven.plugin.findbugs.version>
     </properties>
 
     <dependencies>
     <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
-        <version>${maven.junit.plugin.version}</version>
+        <version>${maven.plugin.junit.version}</version>
     </dependency>
     <dependency>
         <groupId>org.jacoco</groupId>
         <artifactId>org.jacoco.agent</artifactId>
-        <version>${maven.jacoco.plugin.version}</version>
+        <version>${maven.plugin.jacoco.version}</version>
         <scope>test</scope>
         <classifier>runtime</classifier>
     </dependency>
@@ -89,12 +86,12 @@
                     <dependency>
                         <groupId>org.codehaus.plexus</groupId>
                         <artifactId>plexus-compiler-javac-errorprone</artifactId>
-                        <version>${plexus.compiler.javac.errorprone}</version>
+                        <version>${maven.plugin.plexus-compiler-errorprone.version}</version>
                     </dependency>
                     <dependency>
                         <groupId>com.google.errorprone</groupId>
                         <artifactId>error_prone_core</artifactId>
-                        <version>${error.prone.core}</version>
+                        <version>${maven.plugin.errorprone.core.version}</version>
                     </dependency>
                 </dependencies>
             </plugin>
@@ -109,7 +106,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${maven.jacoco.plugin.version}</version>
+                <version>${maven.plugin.jacoco.version}</version>
                 <executions>
                     <execution>
                         <id>prepare-agent</id>
@@ -172,7 +169,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven.checkstyle.plugin.version}</version>
+                <version>${maven.plugin.checkstyle.version}</version>
                 <dependencies>
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
@@ -205,7 +202,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>${maven.findbugs.plugin}</version>
+                <version>${maven.plugin.findbugs.version}</version>
                 <configuration>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
@@ -232,7 +229,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>${maven.jacoco.plugin.version}</version>
+                <version>${maven.plugin.jacoco.version}</version>
                 <configuration>
                     <dataFile>${project.build.directory}/jacoco/jacoco.exec</dataFile>
                     <excludes>
@@ -250,7 +247,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>findbugs-maven-plugin</artifactId>
-                <version>${maven.findbugs.plugin}</version>
+                <version>${maven.plugin.findbugs.version}</version>
                 <configuration>
                     <findbugsXmlOutput>true</findbugsXmlOutput>
                     <findbugsXmlOutputDirectory>${project.build.directory}/site/findbugs</findbugsXmlOutputDirectory>
@@ -259,7 +256,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>${maven.checkstyle.plugin.version}</version>
+                <version>${maven.plugin.checkstyle.version}</version>
                 <configuration>
                     <includeResources>false</includeResources>
                     <includeTestResources>false</includeTestResources>
