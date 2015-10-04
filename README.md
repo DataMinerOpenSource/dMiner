@@ -9,6 +9,7 @@ The algorithms can be applied directly to a dataset or called from your own Java
 dMiner contains tools for
 
  * regression
+ * optimization (linear two-phase simplex method)
  
 It is also well-suited for developing new machine learning schemes.
 
