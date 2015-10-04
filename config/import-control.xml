@@ -8,6 +8,7 @@
     <allow pkg="java.net"/>
     <allow pkg="java.nio"/>
     <allow pkg="java.util"/>
+    <allow pkg="java.text"/>
     <allow pkg="org.junit"/>
     <allow pkg="com.google.common.base"/>
     <allow pkg="org.apache.commons"/>
