@@ -14,7 +14,7 @@
         <apache.commons.io.version>2.4</apache.commons.io.version>
         <apache.commons.math.version>3.5</apache.commons.math.version>
         <guava.version>18.0</guava.version>
-        <checkstyle.version>6.10.1</checkstyle.version>
+        <checkstyle.version>6.11.2</checkstyle.version>
         <maven.plugin.junit.version>4.12</maven.plugin.junit.version>
         <maven.plugin.checkstyle.version>2.16</maven.plugin.checkstyle.version>
         <maven.plugin.plexus-compiler-errorprone.version>2.6</maven.plugin.plexus-compiler-errorprone.version>
