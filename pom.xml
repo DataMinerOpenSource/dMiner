@@ -16,7 +16,7 @@
         <guava.version>18.0</guava.version>
         <checkstyle.version>6.11.2</checkstyle.version>
         <maven.plugin.junit.version>4.12</maven.plugin.junit.version>
-        <maven.plugin.checkstyle.version>2.16</maven.plugin.checkstyle.version>
+        <maven.plugin.checkstyle.version>2.17</maven.plugin.checkstyle.version>
         <maven.plugin.plexus-compiler-errorprone.version>2.6</maven.plugin.plexus-compiler-errorprone.version>
         <maven.plugin.errorprone.core.version>2.0.5</maven.plugin.errorprone.core.version>
         <maven.plugin.findbugs.version>3.0.2</maven.plugin.findbugs.version>
