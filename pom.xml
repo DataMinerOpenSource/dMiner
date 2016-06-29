@@ -13,7 +13,7 @@
         <apache.commons.lang3.version>3.4</apache.commons.lang3.version>
         <apache.commons.io.version>2.4</apache.commons.io.version>
         <apache.commons.math.version>3.5</apache.commons.math.version>
-        <guava.version>18.0</guava.version>
+        <guava.version>19.0</guava.version>
         <checkstyle.version>6.11.2</checkstyle.version>
         <maven.plugin.junit.version>4.12</maven.plugin.junit.version>
         <maven.plugin.checkstyle.version>2.17</maven.plugin.checkstyle.version>
