@@ -18,7 +18,7 @@
         <checkstyle.version>7.0</checkstyle.version>
         <maven.plugin.junit.version>4.12</maven.plugin.junit.version>
         <maven.plugin.checkstyle.version>2.17</maven.plugin.checkstyle.version>
-        <maven.plugin.plexus-compiler-errorprone.version>2.7</maven.plugin.plexus-compiler-errorprone.version>
+        <maven.plugin.plexus-compiler-errorprone.version>2.8</maven.plugin.plexus-compiler-errorprone.version>
         <maven.plugin.errorprone.core.version>2.0.9</maven.plugin.errorprone.core.version>
         <maven.plugin.findbugs.version>3.0.3</maven.plugin.findbugs.version>
         <maven.plugin.cobertura.version>2.7</maven.plugin.cobertura.version>
