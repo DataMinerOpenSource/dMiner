@@ -10,6 +10,7 @@
 
     <properties>
         <java.version>1.8</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <apache.commons.lang3.version>3.4</apache.commons.lang3.version>
         <apache.commons.io.version>2.5</apache.commons.io.version>
         <apache.commons.math.version>3.6.1</apache.commons.math.version>
@@ -141,6 +142,7 @@
                 <artifactId>findbugs-maven-plugin</artifactId>
                 <version>${maven.plugin.findbugs.version}</version>
                 <configuration>
+                    <excludeFilterFile>${project.basedir}/config/findbugs_excludes.xml</excludeFilterFile>
                     <effort>Max</effort>
                     <threshold>Low</threshold>
                     <findbugsXmlOutput>true</findbugsXmlOutput>

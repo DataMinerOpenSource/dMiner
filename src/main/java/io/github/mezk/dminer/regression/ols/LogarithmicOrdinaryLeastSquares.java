@@ -1,6 +1,7 @@
 package io.github.mezk.dminer.regression.ols;
 
 import java.util.Arrays;
+import java.util.function.DoublePredicate;
 
 import io.github.mezk.dminer.utils.ArrayMath;
 import io.github.mezk.dminer.utils.StatsUtils;
@@ -18,7 +19,12 @@ public class LogarithmicOrdinaryLeastSquares extends LinearOrdinaryLeastSquares 
     @Override
     public RegressionResults regress(double[][] inputData) {
 
-        if (Arrays.stream(inputData[0]).filter(x -> x <= 0.0).toArray().length != 0) {
+        if (Arrays.stream(inputData[0]).filter(new DoublePredicate() {
+            @Override
+            public boolean test(double x) {
+                return x <= 0.0;
+            }
+        }).toArray().length != 0) {
             throw new IllegalArgumentException("Input data contains argument "
                 + "which is not greater than zero");
         }
