@@ -1,5 +1,7 @@
 package io.github.mezk.dminer.algorithms.basic.search;
 
+import java.util.Arrays;
+
 /**
  * Implements binary search algorithm for int.
  * Binary search works on sorted arrays.
@@ -66,6 +68,66 @@ public final class BinarySearch {
      *         and only if the key is found.
      */
     public static int search(int key, int[] array) {
+        return search(key, array, 0, array.length);
+    }
+
+    public static int search(float key, float[] array, int fromIndex, int toIndex) {
+        checkRange(fromIndex, toIndex, array.length);
+        int low = fromIndex;
+        int high = toIndex - 1;
+        while (low <= high) {
+            final int mid = (low + high) >>> 1;
+            if (key < array[mid]) {
+                high = mid - 1;
+            }
+            else if (key > array[mid]) {
+                low = mid + 1;
+            }
+            else {
+                final int midBits = Float.floatToIntBits(array[mid]);
+                final int keyBits = Float.floatToIntBits(key);
+                if (midBits == keyBits)
+                    return mid;
+                else if (midBits < keyBits)
+                    low = mid + 1;
+                else
+                    high = mid - 1;
+            }
+        }
+        return -(1 + low);
+    }
+
+    public static int search(float key, float[] array) {
+        return search(key, array, 0, array.length);
+    }
+
+    public static int search(double key, double[] array, int fromIndex, int toIndex) {
+        checkRange(fromIndex, toIndex, array.length);
+        int low = fromIndex;
+        int high = toIndex - 1;
+        while (low <= high) {
+            final int mid = (low + high) >>> 1;
+            if (key < array[mid]) {
+                high = mid - 1;
+            }
+            else if (key > array[mid]) {
+                low = mid + 1;
+            }
+            else {
+                final long midBits = Double.doubleToLongBits(array[mid]);
+                final long keyBits = Double.doubleToLongBits(key);
+                if (midBits == keyBits)
+                    return mid;
+                else if (midBits < keyBits)
+                    low = mid + 1;
+                else
+                    high = mid - 1;
+            }
+        }
+        return -(1 + low);
+    }
+
+    public static int search(double key, double[] array) {
         return search(key, array, 0, array.length);
     }
 

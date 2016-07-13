@@ -5,6 +5,7 @@ import static org.junit.Assert.fail;
 
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import io.github.mezk.dminer.algorithms.basic.search.BinarySearch;
@@ -123,9 +124,81 @@ public class BinarySearchTest {
         }
     }
 
+    @Ignore
     @Test
     public void testSearchInArrayOfIntOverflow() {
         // implement later
         // now it has problem with heap size
     }
+
+    @Test
+    public void testSearchInArrayOfTwoDoubleValues() {
+        final double[] array = {1.0d, 2.0d};
+        assertEquals(-1, BinarySearch.search(0.0d, array));
+        assertEquals(0, BinarySearch.search(1.0d, array));
+        assertEquals(1, BinarySearch.search(2.0d, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfOneDoubleValues() {
+        final double[] array = {1.0d};
+        assertEquals(-1, BinarySearch.search(0.0d, array));
+        assertEquals(0, BinarySearch.search(1.0d, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfZeroDoubleValues() {
+        final double[] array = { };
+        assertEquals(-1, BinarySearch.search(0.0d, array));
+    }
+
+    @Test
+    public void testSearchFirstValuesInArrayOfDoubleValues() {
+        final double[] array = SequenceGenerators.generateDoubleSequence(1000);
+        assertEquals(0, BinarySearch.search(0.0d, array));
+    }
+//
+//    @Test
+//    public void testSearchLastValuesInArrayOfIntValues() {
+//        final int[] array = SequenceGenerators.generateIntSequence(1001);
+//        assertEquals(1000, BinarySearch.search(1000, array));
+//    }
+//
+//    @Test
+//    public void testSearchNonExistingValuesInArrayOfIntValues() {
+//        final int[] array = {1, 4, 5, 8, 10, 12};
+//        assertEquals(-2, BinarySearch.search(3, array));
+//    }
+//
+//    @Test
+//    public void testSearchInArrayOfIntValuesWhichHaveDuplicates() {
+//        final int[] array = {1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+//        assertEquals(2, BinarySearch.search(2, array));
+//        assertEquals(0, BinarySearch.search(1, array));
+//        assertEquals(11, BinarySearch.search(10, array));
+//    }
+//
+//    @Test
+//    public void testSearchInArrayOfIntValuesFoundMiddle() {
+//        final int[] array = {1, 2, 4, 5, 6};
+//        assertEquals(2, BinarySearch.search(4, array));
+//    }
+//
+//    @Test
+//    public void testSearchInArrayOfIntValuesFoundRight() {
+//        final int[] array = {1, 2, 4, 5, 6};
+//        assertEquals(4, BinarySearch.search(6, array));
+//    }
+//
+//    @Test
+//    public void testSearchInArrayOfIntValuesFoundLeft() {
+//        final int[] array = {1, 2, 4, 5, 6};
+//        assertEquals(0, BinarySearch.search(1, array));
+//    }
+//
+//    @Test
+//    public void testSearchInArrayOfIntOverflow() {
+//        // implement later
+//        // now it has problem with heap size
+//    }
 }

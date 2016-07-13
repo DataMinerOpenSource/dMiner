@@ -34,4 +34,18 @@ public final class SequenceGenerators {
     public static int[] generateIntSequence(int end) {
         return generateIntSequence(0, end);
     }
+
+    public static double[] generateDoubleSequence(int start, int end) {
+        final double[] array = new double[end - start + 1];
+        double value = start;
+        for (int i = 0; value <= end; i++) {
+            array[i] = value;
+            value++;
+        }
+        return array;
+    }
+
+    public static double[] generateDoubleSequence(int end) {
+        return generateDoubleSequence(0, end);
+    }
 }
