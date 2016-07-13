@@ -157,48 +157,74 @@ public class BinarySearchTest {
         final double[] array = SequenceGenerators.generateDoubleSequence(1000);
         assertEquals(0, BinarySearch.search(0.0d, array));
     }
-//
-//    @Test
-//    public void testSearchLastValuesInArrayOfIntValues() {
-//        final int[] array = SequenceGenerators.generateIntSequence(1001);
-//        assertEquals(1000, BinarySearch.search(1000, array));
-//    }
-//
-//    @Test
-//    public void testSearchNonExistingValuesInArrayOfIntValues() {
-//        final int[] array = {1, 4, 5, 8, 10, 12};
-//        assertEquals(-2, BinarySearch.search(3, array));
-//    }
-//
-//    @Test
-//    public void testSearchInArrayOfIntValuesWhichHaveDuplicates() {
-//        final int[] array = {1, 1, 2, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-//        assertEquals(2, BinarySearch.search(2, array));
-//        assertEquals(0, BinarySearch.search(1, array));
-//        assertEquals(11, BinarySearch.search(10, array));
-//    }
-//
-//    @Test
-//    public void testSearchInArrayOfIntValuesFoundMiddle() {
-//        final int[] array = {1, 2, 4, 5, 6};
-//        assertEquals(2, BinarySearch.search(4, array));
-//    }
-//
-//    @Test
-//    public void testSearchInArrayOfIntValuesFoundRight() {
-//        final int[] array = {1, 2, 4, 5, 6};
-//        assertEquals(4, BinarySearch.search(6, array));
-//    }
-//
-//    @Test
-//    public void testSearchInArrayOfIntValuesFoundLeft() {
-//        final int[] array = {1, 2, 4, 5, 6};
-//        assertEquals(0, BinarySearch.search(1, array));
-//    }
-//
-//    @Test
-//    public void testSearchInArrayOfIntOverflow() {
-//        // implement later
-//        // now it has problem with heap size
-//    }
+
+    @Test
+    public void testSearchLastValuesInArrayOfDoubleValues() {
+        final double[] array = SequenceGenerators.generateDoubleSequence(1001);
+        assertEquals(1000, BinarySearch.search(1000.0d, array));
+    }
+
+    @Test
+    public void testSearchNonExistingValuesInArrayOfDoubleValues() {
+        final double[] array = {1.0d, 4.0d, 5.0d, 8.0d, 10.0d, 12.0d};
+        assertEquals(-2, BinarySearch.search(3.0d, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfDoubleValuesWhichHaveDuplicates() {
+        final double[] array = {1.0d, 1.0d, 2.0d, 2.0d, 3.0d, 4.0d,
+                                5.0d, 6.0d, 7.0d, 8.0d, 9.0d, 10.0d};
+        assertEquals(2, BinarySearch.search(2.0d, array));
+        assertEquals(0, BinarySearch.search(1.0d, array));
+        assertEquals(11, BinarySearch.search(10.0d, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfDoubleValuesFoundMiddle() {
+        final double[] array = {1.0d, 2.0d, 4.0d, 5.0d, 6.0d};
+        assertEquals(2, BinarySearch.search(4.0d, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfDoubleValuesFoundRight() {
+        final double[] array = {1.0d, 2.0d, 4.0d, 5.0d, 6.0d};
+        assertEquals(4, BinarySearch.search(6.0d, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfDoubleValuesFoundLeft() {
+        final double[] array = {1.0d, 2.0d, 4.0d, 5.0d, 6.0d};
+        assertEquals(0, BinarySearch.search(1.0d, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfDoubleNanValuesFound() {
+        final double[] array = {1.0d, Double.NaN, 2.0d};
+        assertEquals(0, BinarySearch.search(1.0d, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfDoubleValuesNanFound() {
+        final double[] array = {1.0d, Double.NaN, 2.0d};
+        assertEquals(1, BinarySearch.search(Double.NaN, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfDoubleValuesPositiveInfinityFound() {
+        final double[] array = {1.0d, Double.POSITIVE_INFINITY, 2.0d};
+        assertEquals(1, BinarySearch.search(Double.POSITIVE_INFINITY, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfDoubleValuesNegativeInfinityFound() {
+        final double[] array = {Double.NEGATIVE_INFINITY, 1.0d, 2.0d};
+        assertEquals(0, BinarySearch.search(Double.NEGATIVE_INFINITY, array));
+    }
+
+    @Ignore
+    @Test
+    public void testSearchInArrayOfDoubleOverflow() {
+        // implement later
+        // now it has problem with heap size
+    }
 }
