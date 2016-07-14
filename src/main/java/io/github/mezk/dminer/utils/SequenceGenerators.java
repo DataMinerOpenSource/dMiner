@@ -48,4 +48,18 @@ public final class SequenceGenerators {
     public static double[] generateDoubleSequence(int end) {
         return generateDoubleSequence(0, end);
     }
+
+    public static float[] generateFloatSequence(int start, int end) {
+        final float[] array = new float[end - start + 1];
+        float value = start;
+        for (int i = 0; value <= end; i++) {
+            array[i] = value;
+            value++;
+        }
+        return array;
+    }
+
+    public static float[] generateFloatSequence(int end) {
+        return generateFloatSequence(0, end);
+    }
 }

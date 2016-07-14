@@ -227,4 +227,101 @@ public class BinarySearchTest {
         // implement later
         // now it has problem with heap size
     }
+
+    @Test
+    public void testSearchInArrayOfTwoFloatValues() {
+        final float[] array = {1.0f, 2.0f};
+        assertEquals(-1, BinarySearch.search(0.0f, array));
+        assertEquals(0, BinarySearch.search(1.0f, array));
+        assertEquals(1, BinarySearch.search(2.0f, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfOneFloatValues() {
+        final float[] array = {1.0f};
+        assertEquals(-1, BinarySearch.search(0.0f, array));
+        assertEquals(0, BinarySearch.search(1.0f, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfZeroFloatValues() {
+        final float[] array = { };
+        assertEquals(-1, BinarySearch.search(0.0f, array));
+    }
+
+    @Test
+    public void testSearchFirstValuesInArrayOfFloatValues() {
+        final float[] array = SequenceGenerators.generateFloatSequence(1000);
+        assertEquals(0, BinarySearch.search(0.0f, array));
+    }
+
+    @Test
+    public void testSearchLastValuesInArrayOfFloatValues() {
+        final float[] array = SequenceGenerators.generateFloatSequence(1001);
+        assertEquals(1000, BinarySearch.search(1000.0f, array));
+    }
+
+    @Test
+    public void testSearchNonExistingValuesInArrayOfFloatValues() {
+        final float[] array = {1.0f, 4.0f, 5.0f, 8.0f, 10.0f, 12.0f};
+        assertEquals(-2, BinarySearch.search(3.0f, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfFloatValuesWhichHaveDuplicates() {
+        final float[] array = {1.0f, 1.0f, 2.0f, 2.0f, 3.0f, 4.0f,
+                                5.0f, 6.0f, 7.0f, 8.0f, 9.0f, 10.0f};
+        assertEquals(2, BinarySearch.search(2.0f, array));
+        assertEquals(0, BinarySearch.search(1.0f, array));
+        assertEquals(11, BinarySearch.search(10.0f, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfFloatValuesFoundMiddle() {
+        final float[] array = {1.0f, 2.0f, 4.0f, 5.0f, 6.0f};
+        assertEquals(2, BinarySearch.search(4.0f, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfFloatValuesFoundRight() {
+        final float[] array = {1.0f, 2.0f, 4.0f, 5.0f, 6.0f};
+        assertEquals(4, BinarySearch.search(6.0f, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfFloatValuesFoundLeft() {
+        final double[] array = {1.0f, 2.0f, 4.0f, 5.0f, 6.0f};
+        assertEquals(0, BinarySearch.search(1.0f, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfFloatNanValuesFound() {
+        final float[] array = {1.0f, Float.NaN, 2.0f};
+        assertEquals(0, BinarySearch.search(1.0f, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfFloatValuesNanFound() {
+        final float[] array = {1.0f, Float.NaN, 2.0f};
+        assertEquals(1, BinarySearch.search(Float.NaN, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfFloatValuesPositiveInfinityFound() {
+        final float[] array = {1.0f, Float.POSITIVE_INFINITY, 2.0f};
+        assertEquals(1, BinarySearch.search(Float.POSITIVE_INFINITY, array));
+    }
+
+    @Test
+    public void testSearchInArrayOfFloatValuesNegativeInfinityFound() {
+        final float[] array = {Float.NEGATIVE_INFINITY, 1.0f, 2.0f};
+        assertEquals(0, BinarySearch.search(Float.NEGATIVE_INFINITY, array));
+    }
+
+    @Ignore
+    @Test
+    public void testSearchInArrayOfFloatOverflow() {
+        // implement later
+        // now it has problem with heap size
+    }
 }
