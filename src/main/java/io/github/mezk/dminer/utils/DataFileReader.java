@@ -65,7 +65,7 @@ public final class DataFileReader {
             }
         }
         else {
-            throw new IllegalArgumentException("Wrong number of arguments in input file");
+            throw new IllegalArgumentException("Wrong number of arguments in the input file");
         }
         return outArray;
     }
